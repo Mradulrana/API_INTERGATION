@@ -1,0 +1,271 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+}
+
+.main-container{
+    display: grid;
+    place-items: center;
+    align-content: center;
+    height: 100dvh;
+    transform: transform 0.5s ease-in-out;
+    transition: all 0.37s;
+}
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.804);
+    z-index: 0; 
+}
+.logo p {
+    font-size: 3rem;
+    color: #222323;
+}
+.logo p span{
+    color: #ffc0cb;
+}
+.logo {
+    display: flex;
+    align-items: end;
+    gap: 10px;
+}
+.logo svg{
+   object-fit: contain;
+}
+#searchWrapper {
+    width: 100%;
+    margin:auto;
+}
+
+.heading {
+    text-align: center;
+    font-size: 30px;
+}
+.searchWrapper-inner-txet{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    gap: 20px;
+}
+
+.wordcounter{
+    text-align: start;
+    margin: 5px 2px;
+    font-size: 14px;
+    color: #222323;
+    font-weight: 600;
+}
+
+.inputfield {
+    display: block;
+    width: 100%;
+    max-width: 800px;
+}
+.inputfield input{
+    width: 100%;
+}
+#queryInput {
+    padding: 8px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+#searchButton {
+    padding: 8px 15px;
+    font-size: 16px;
+    background-color: #222323;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#searchButton:hover {
+    background-color: #111313eb;
+}
+
+#resultDiv, #gptResponse {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    overflow-y: visible;
+}
+
+.container{
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border-radius: 8px;
+    z-index: 99;
+    width: 100%;
+}
+
+#modalContent {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    width: 100%;
+    max-width: 300px;
+    transform: translate(-50%, 50%);
+    position: absolute;
+    z-index: 99;
+    top: 50%;
+    left: 50%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+#modal button {
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#modal button:hover {
+    background-color: #0056b3;
+}
+
+#g-recaptcha {
+    margin-top: 20px;
+}
+#gptResponse ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 10px 0;
+}
+
+#gptResponse li {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+#gptResponse p {
+    font-size: 16px;
+    color: #333;
+    margin: 10px 0;
+    white-space: pre-line;
+    line-height: 1.5;
+}
+
+
+.recaptcha-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.recaptcha-popup-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.close-button {
+    align-self: flex-end;
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+/* loader css */
+.loader {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    font-size: 80px;
+    line-height: 1.5;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #0000;
+    -webkit-text-stroke: 1px #000;
+    z-index: 9999;
+  
+    background:
+      radial-gradient(1.13em at 50% 1.6em,#000 99%,#0000 101%) calc(50% - 1.6em) 0/3.2em 100% text,
+      radial-gradient(1.13em at 50% -0.8em,#0000 99%,#000 101%) 50% .8em/3.2em 100% repeat-x  text;
+    animation: l9 2s linear infinite;
+  }
+  .loader:before {
+    content: "Beauty Search.Ai";
+  }
+  @keyframes l9 {
+    to {background-position: calc(50% + 1.6em) 0,calc(50% + 3.2em) .8em}
+  }
+
+  @media (max-width:1080px) {
+    .searchWrapper-inner-txet,
+    .container{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .loader{
+        font-size: 50px;
+        text-wrap:nowrap ;
+        text-align: center;
+    }
+  }
+
+  @media (max-width:500px) {
+    .logo{
+        align-items: center;
+        gap: 0px;
+    }
+    .logo svg{
+        width: 50px;
+        height: 50px;
+    }
+    .logo p{
+        padding-left: 5px;
+        padding-right: 5px;
+        font-size: 2.2rem;
+    }
+    .inputfield{
+        margin-top: 20px;
+    }
+    .searchWrapper-inner-txet{
+        flex-direction: column;
+        align-items: center;
+    
+    }
+    #searchButton{
+        padding: 8px 25px;
+    }
+    .loader {
+        font-size: 30px;
+        text-wrap:nowrap ;
+        text-align: center;
+    }
+  }
+
